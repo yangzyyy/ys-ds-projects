@@ -24,5 +24,20 @@ def merge_type_df():
     print('Merge done.')
 
 
+def clean_data(df):
+    missing = round((df.isnull().sum() * 100) / df.shape[0], 3)
+    dropna_col = []
+    drop_col = []
+    for i in range(len(missing)):
+        if missing[i] < 10:
+            dropna_col.append(missing.index[i])
+        elif missing[i] > 50:
+            drop_col.append(missing.index[i])
+    new_df = df.dropna(subset=dropna_col)
+    return new_df
+
+
 if __name__ == "__main__":
-    merge_type_df()
+    df1 = pd.read_csv(os.path.join(DATA_PATH, 'CollisionRecords.csv'))
+    new_df = clean_data(df1)
+    print('done')
