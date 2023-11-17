@@ -3,5 +3,5 @@
 yz_ds_projects/california_traffic_collision_database_2023/data
 .pkl
 .idea
-*/.json
-*/.zip
+yz_ds_projects/california_traffic_collision_database_2023/mongodb_query
+.ipynb_checkpoints
